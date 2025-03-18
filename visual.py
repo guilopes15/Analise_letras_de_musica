@@ -18,19 +18,16 @@ for index, album in enumerate(df.sort('data').partition_by('album')):
     mean = album['ttr'].mean()
     
     fig, ax = plt.subplots()
-    
-    
+     
     ax.barh(album['musica'], album['tokens'])
     ax.barh(album['musica'], album['types'])
     ax.barh(album['musica'], album['ttr'] )
     ax.axvline(x=mean)
     
-    
     ax.set_title(f"{album['album'][0]} - {album['data'][0]}")
     ax.set_xlabel('Estatísticas de texto')
     ax.set_ylabel('Nome da música')
-    
-    
+     
     ax.legend(
         (
             'Media de TTR',
